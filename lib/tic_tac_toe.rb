@@ -79,18 +79,21 @@ def full?(board)
   if board.none?{|el| el==" "} == true
     return true
   end
+  return false
 end
 
 def draw?(board)
   if full?(board) && won?(board)==false
     return true
   end
+  return false
 end
 
 def over?(board)
   if won?(board) || full?(board) || draw?(board)
     return true
   end
+  return false
 end
 
 def winner(board)
