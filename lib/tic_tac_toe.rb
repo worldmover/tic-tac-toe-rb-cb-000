@@ -55,11 +55,12 @@ end
 end
 
 def current_player(board)
-    if turn_count(board)%2==0
-    return "X"
+  if turn_count(board)%2==0
+      return "X"
   end
-
-  return "O"
+  if turn_count(board)%2==1
+    return "O"
+  end
 end
 
 def won?(board)
@@ -97,4 +98,17 @@ def winner(board)
     return board[won?(board)[0]]
   end
   return nil
+end
+
+def play(board)
+  while over?(board)!=true
+    turn(board)
+  end
+
+  if won?(board)!=false
+    puts "Congratulations #{winner(board)}!"
+  end
+  if draw?(board)!=false
+    puts "Cat's Game!"
+  end
 end
